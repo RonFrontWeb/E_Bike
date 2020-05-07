@@ -267,7 +267,7 @@
         z-index: 0;
         position: relative;
         height: 100vh;
-        background-image: url(/img/Contact-form-background.jpg);
+        background-image: url(../img/Contact-form-background.jpg);
         background-size: cover;
         background-position: center;
     }
