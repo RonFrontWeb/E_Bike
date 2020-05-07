@@ -2,7 +2,7 @@
 School project - Indie projekt
 ---
 Website der viser forskellige typer elektriske cykler og hvor man rådgiver kunder til at lave det rette valg. 
-Sitet indeholder galleri og information til 3 typer cykler, samt en forside og en kontakt side.
+Sitet indeholder en forside, galleri og information til 3 typer cykler, samt en kontaktside.
 
 Den er bygget op som en One page med scroll snap. Scroll snap er en css property der gør at child elementer kan snappe til deres parents elements kant, så man hele tiden får et full view af en sektion samt en navigations bar som følger med når men scroller ned.
 Den er bygget op i flere sektioner. Hver sektion har et anker som man kan tilgå i navigationsbaren.
