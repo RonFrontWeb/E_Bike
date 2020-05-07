@@ -23,13 +23,17 @@ Til at opnå det har jeg brugt følgende:
 * Loops
 * If/else statments
  
-Intersection observer fungere ved at den registrer man scroller over et element i Html dokumentet og der ved fremkalder en event som der bruges til at styrer og ændre farver og effekter.
+Intersection Observer fungerer ved at den registrerer at man scroller over et element i HTML dokumentet og derved fremkalder en event som bruges til at styre og ændre farver og effekter.
 
-Dokument er tjekket i w3 validator og i  Google Chrome Audits
-Har forsøgt at lave sitet sematisk korrekt ved at bruge de rigtige tags som 
+Dokument er tjekket i w3 validator og i Google Chrome Audits.
+Har lavet sitet semantisk korrekt ved at bruge de rigtige tags som:
+
 * Header 
+* H1, H2
 * Nav 
 * Section
 * Main
+* Button
 
+Ud fra design er der valgt ikke at lave en footer.
  
