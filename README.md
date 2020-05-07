@@ -10,18 +10,22 @@ Den er er bygge op i flere sektioner, hver sektioner har et anker som man kan ti
 Hver sektion er bygge op af Grid og Flex til placering og sørge for siden at så responsive som muligt og der ved passer til mobile, tablet og desktop
  Java script der blandt andet er brugt.
 
-•	Intersection observer
-•	EventListener
-•	QuerySelector
-•	Variabler
-•	Objects
-•	Functions
-•	Loops
-•	If/else statments
+* Intersection observer
+* EventListener
+* QuerySelector
+* Variabler
+* Objects
+* Functions
+* Loops
+* If/else statments
  
 Intersection observer fungere ved at den registrer man scroller over et element i Html dokumentet og der ved fremkalder en event som der bruges til at styrer og ændre farver og effekter.
 
 Dokument er tjekket i w3 validator og i  Google Chrome Audits
-Har forsøgt at lave sitet sematisk korrekt ved at bruge de rigtige tags , eks. Header, nav , section, main
+Har forsøgt at lave sitet sematisk korrekt ved at bruge de rigtige tags som 
+* Header 
+* Nav 
+* Section
+* Main
 
  
