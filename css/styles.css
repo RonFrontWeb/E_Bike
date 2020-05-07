@@ -1,0 +1,899 @@
+    /* #region root setting */
+    
+     :root {
+        --main-bg-color: #D9D9D9;
+        --main-txt-color: #737373;
+        --header-bg-color: #0D0D0D;
+        --header-menu-bg-color: rgba(55, 55, 55, 0.8);
+        --main-padding: 15px;
+        --main-margin: 20px;
+        --main-font-size: 16px;
+        --main-border: 3px red solid;
+        --header-height: 80px;
+        --facebook-color: #3b5998;
+        --youtube-color: #c4302b;
+        --foldingBike-color: #414e45;
+        --foldlogo-color: #729C7E;
+        --roadBike-color: #54336b;
+        --mountainBike-color: #AE492F;
+        --hover-color: rgb(38, 124, 236);
+        --contact-color: #EBC856;
+        --border-radius: 10px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Proza Libre', sans-serif;
+        font-size: 16px;
+        scroll-behavior: smooth;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    svg {
+        height: 50px;
+        fill: white;
+    }
+    /* #endregion root setting */
+    
+    .snap-container {
+        scroll-snap-type: block mandatory;
+        overflow: auto;
+        height: 100vh;
+    }
+    
+    .snap {
+        scroll-snap-align: start;
+    }
+    
+    .back-to-top.hidden {
+        display: none;
+    }
+    
+    .back-to-top {
+        position: fixed;
+        border-radius: 10px 10px 0 0;
+        bottom: -5px;
+        right: 30px;
+        z-index: 7;
+        color: rgb(156, 3, 3);
+        background-color: var(--header-menu-bg-color);
+    }
+    
+    .back-to-top svg {
+        fill: var(--facebook-color);
+        height: 30px;
+        width: 40px;
+    }
+    
+    .back-to-top:hover svg {
+        fill: var(--youtube-color);
+    }
+    
+    .hero-container {
+        position: relative;
+        height: 100vh;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+    
+    .hero-container-headings {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+        color: white;
+    }
+    
+    .hero-container-headings h1 {
+        color: rgba(255, 255, 255, 0.397);
+        font-size: 30px;
+        margin-top: 300px;
+        background-color: rgba(85, 85, 85, 0.384);
+        padding: 20px 45px;
+        border-radius: var(--border-radius);
+    }
+    
+    .hero-container-headings p {
+        color: rgba(255, 255, 255, 0.397);
+        max-width: 500px;
+        margin: 30px 30px;
+        padding: 20px 45px;
+        border-radius: var(--border-radius);
+    }
+    
+    .hero-image {
+        animation-name: heroZoom;
+        animation-duration: 20000ms;
+        animation-iteration-count: infinite;
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        object-position: 50%;
+        animation-direction: alternate;
+        animation-timing-function: ease;
+    }
+    
+    @keyframes heroZoom {
+        0% {
+            transform: scale(1.1);
+            /* object-position: 50%; */
+        }
+        50% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+            /* object-position: 55%; */
+        }
+    }
+    
+    .gallery-info-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .gallery-info {
+        position: absolute;
+    }
+    
+    .gallery-info-title {
+        padding: var(--main-padding) var(--main-padding) var(--main-padding) 50px;
+        top: 100px;
+        font-size: 2rem;
+        z-index: 1;
+        left: -100vw;
+        border-radius: 0 15px 15px 0;
+    }
+    
+    .gallery-info-text {
+        padding: var(--main-padding) 50px var(--main-padding) var(--main-padding);
+        font-size: 1rem;
+        overflow: hidden;
+        max-height: 150px;
+        bottom: 50px;
+        right: -100vw;
+        z-index: 1;
+        border-radius: 15px 0 0 15px;
+    }
+    
+    .gallery-info-title.active {
+        animation-name: info-left-in;
+        animation-duration: 1000ms;
+        animation-delay: 1000ms;
+        animation-fill-mode: forwards;
+    }
+    
+    .gallery-info-text.active {
+        animation-name: info-right-in;
+        animation-duration: 1000ms;
+        animation-delay: 1000ms;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes info-left-in {
+        0% {
+            left: -100vw;
+        }
+        100% {
+            left: 0;
+        }
+    }
+    
+    @keyframes info-right-in {
+        0% {
+            right: -100vw;
+        }
+        100% {
+            right: 0;
+        }
+    }
+    
+    .gallery-info-light {
+        background-color: rgba(255, 255, 255, 0.397);
+        color: var(--header-bg-color);
+    }
+    
+    .gallery-info-dark {
+        background-color: rgba(0, 0, 0, 0.397);
+        color: white;
+    }
+    
+    .image-wrapper {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .image-container {
+        display: grid;
+        grid-auto-flow: column;
+        position: relative;
+        transition: ease-out 1000ms;
+    }
+    
+    section .bike-image {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        transition: filter 3500ms;
+        transition-delay: 500ms;
+        filter: grayscale(100%);
+        position: relative;
+        /* object-position: 70%; */
+    }
+    
+    .emptyDiv {
+        position: relative;
+        top: 50vh;
+        background-color: red;
+    }
+    
+    .emptyDivPostions {
+        position: relative;
+    }
+    /* hover */
+    
+    section.active .bike-image {
+        filter: grayscale(0);
+    }
+    
+    section .bike-image.one {
+        object-position: 90%;
+    }
+    
+    section .bike-image.two {
+        object-position: 75%;
+    }
+    
+    section .bike-image.three {
+        object-position: 70%;
+    }
+    /* #region contact form */
+    
+    .contact-container {
+        z-index: 0;
+        position: relative;
+        height: 100vh;
+        background-image: url(/img/Contact-form-background.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .contact-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    
+    .contact-bike-overlay {
+        pointer-events: none;
+        z-index: 2;
+        position: absolute;
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+        transition: opacity 600ms;
+    }
+    
+    .contact-bike-overlay.hidden {
+        opacity: 0;
+    }
+    
+    .contact-form-desktop {
+        padding-top: 40px;
+        display: grid;
+        grid-template-columns: 80%;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    
+    .contact-form-map-container {
+        display: none;
+    }
+    
+    .desktop-contact {
+        display: none;
+    }
+    
+    .contact-form-title-box-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .contact-form-title-box-buttons,
+    .contact-form-icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .contact-form-call-button {
+        margin-right: 15px;
+    }
+    
+    .contact-form-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: 50px;
+        min-height: 30px;
+        height: 8vw;
+        min-height: 15px;
+        width: 15vw;
+        border-radius: var(--border-radius);
+        background-color: var(--header-menu-bg-color);
+    }
+    
+    .contact-form-icons svg {
+        height: 30px;
+    }
+    /* TEST OVERLAY */
+    
+    .contact-form-title {
+        white-space: nowrap;
+        /* position: relative; */
+        color: white;
+        font-size: 1.5rem;
+    }
+    
+    .contact-form label {
+        position: absolute;
+        left: -3000px;
+        font-size: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        padding: var(--main-padding);
+        color: white;
+        margin-top: 10px;
+        width: 100%;
+        background-color: var(--header-menu-bg-color);
+        border: none;
+        border-radius: var(--border-radius);
+    }
+    
+    .contact-form-button {
+        cursor: pointer;
+    }
+    
+    .contact-form-button:active {
+        color: black;
+    }
+    
+    .lable-text-box {
+        justify-content: center;
+        display: flex;
+        position: relative;
+    }
+    
+    .speak {
+        padding-right: 5px;
+        margin-top: 10px;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        height: 50px;
+        cursor: pointer;
+    }
+    
+    .speak:hover svg {
+        fill: rgba(0, 0, 0, 0.648);
+    }
+    
+    .speak svg {
+        height: 30px;
+        fill: rgba(0, 0, 0, 0.348);
+    }
+    /* #endregion contact form */
+    
+    .navigation-container {
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+    }
+    
+    .navigation-bike-image-arrow {
+        background: transparent;
+        border: none;
+        position: absolute;
+        cursor: pointer;
+        pointer-events: all;
+    }
+    
+    .navigation-bike-image-arrow svg {
+        fill: rgb(29, 57, 133);
+        height: 5rem;
+        opacity: 1;
+    }
+    
+    .arrow-left {
+        left: -5rem;
+    }
+    
+    .arrow-left.active {
+        animation-name: arrow-left-in;
+        animation-duration: 1000ms;
+        animation-delay: 1000ms;
+        animation-fill-mode: forwards;
+    }
+    
+    .arrow-right {
+        right: -5rem;
+    }
+    
+    .arrow-right.active {
+        animation-name: arrow-right-in;
+        animation-duration: 1000ms;
+        animation-delay: 1000ms;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes arrow-left-in {
+        0% {
+            left: -5rem;
+        }
+        80% {
+            left: 3rem;
+        }
+        100% {
+            left: 0;
+        }
+    }
+    
+    @keyframes arrow-right-in {
+        0% {
+            right: -5rem;
+        }
+        80% {
+            right: 3rem;
+        }
+        100% {
+            right: 0;
+        }
+    }
+    
+    .desktop-front-text,
+    .desktop-front-image {
+        display: none;
+    }
+    /* #region header navigations bar */
+    
+    .header {
+        z-index: 2;
+        height: var(--header-height);
+        background-color: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+    
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 4;
+    }
+    
+    .logo:hover svg {
+        opacity: 0.8;
+    }
+    
+    .logo:hover h1 {
+        font-size: 72px;
+        background: linear-gradient(to top, rgb(255, 255, 255) 40%, rgb(255, 217, 0), rgb(255, 153, 0), rgb(153, 0, 255), rgb(2, 199, 12), rgb(0, 119, 255), rgb(255, 255, 255)60%);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        text-shadow: 0px 0px 0px 10px rgb(0, 0, 0);
+    }
+    
+    .logo h1 {
+        transition: all 500ms;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.288);
+        color: white;
+        font-size: 70px;
+        font-weight: 1;
+    }
+    
+    svg.header-logo {
+        fill: var(--logo-color);
+    }
+    
+    .burgermenu-icon {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        margin: 0 var(--main-margin);
+        background-color: rgba(0, 0, 0, 0.488);
+        border-radius: var(--border-radius);
+    }
+    
+    .burgermenu-icon svg {
+        fill: white;
+    }
+    
+    .burgermenu a {
+        display: flex;
+        justify-content: center;
+        white-space: nowrap;
+    }
+    
+    .burgermenu {
+        z-index: 2;
+        background: var(--header-menu-bg-color);
+        width: 80%;
+        height: calc(100vh - var(--header-height));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        overflow: hidden;
+        transition: width 500ms;
+    }
+    
+    .burgermenu.hidden {
+        /* display: none; */
+        width: 0;
+    }
+    
+    .burgermenu .menu-social {
+        left: 0;
+        transition: left 500ms, opacity 200ms;
+        transition-delay: 500ms;
+        opacity: 1;
+    }
+    
+    .burgermenu.hidden .menu-social {
+        transition: left 500ms, opacity 200ms;
+        left: 100%;
+        opacity: 0;
+    }
+    
+    .menu-links {
+        width: 100%;
+    }
+    
+    .menu-links a {
+        font-size: var(--main-font-size);
+        border-bottom: white 1px solid;
+        padding: var(--main-padding);
+        color: var(--main-bg-color);
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+    }
+    
+    .menu-social {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+    }
+    
+    .menu-social a {
+        padding: var(--main-padding);
+        display: flex;
+        align-items: center;
+    }
+    
+    .menu-social .youtube svg {
+        fill: var(--youtube-color);
+        height: 3.75rem;
+    }
+    
+    .menu-social .instagram svg {
+        width: 2.5rem;
+    }
+    
+    .menu-social .facebook svg {
+        fill: var(--facebook-color);
+        height: 3rem;
+    }
+    /* #endregion */
+    /* MEDIA QUERY */
+    
+    @media only screen and (min-width: 1000px) and (min-height:600px) {
+        div.desktop-front-text {
+            align-items: center;
+            padding: 20%;
+        }
+    }
+    
+    @media only screen and (min-width: 800px) {
+        .burgermenu .menu-social {
+            display: none;
+        }
+        .burgermenu-icon {
+            display: none;
+        }
+        .burgermenu {
+            margin-right: 15px;
+            display: flex;
+            top: 0;
+            background: transparent;
+            width: 100% !important;
+            pointer-events: none;
+        }
+        .burgermenu a.home-button {
+            display: none;
+        }
+        .menu-links a {
+            pointer-events: all;
+            position: absolute;
+            font-size: 2rem;
+            border-bottom: none;
+            background-color: rgba(0, 0, 0, 0.397);
+            transition: all 500ms;
+        }
+        .menu-links a:hover {
+            font-size: 2.5rem;
+            /* color: var(--hover-color); */
+            background-color: transparent
+        }
+        .burgermenu.scrollSnap {
+            height: 60px;
+            max-width: 600px;
+        }
+        .burgermenu.scrollSnap .menu-links {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .burgermenu.scrollSnap .menu-links a {
+            position: static;
+            font-size: 1rem;
+            background-color: rgba(0, 0, 0, 0.397);
+            text-shadow: 5px 5px 3px rgb(0, 0, 0);
+            border-radius: 0;
+        }
+        .burgermenu.scrollSnap .menu-links .bike1-button {
+            position: static;
+            font-size: 1rem;
+            background-color: rgba(0, 0, 0, 0.397);
+            border-radius: 0 0 0 10px;
+        }
+        .bike1-button {
+            left: 15px;
+            top: 50%;
+            border-radius: 0 10px 10px 0;
+        }
+        .bike1-button:hover {
+            color: var(--foldlogo-color);
+        }
+        .bike2-button {
+            top: 25%;
+            right: 0;
+            border-radius: 10px 0 0 10px;
+        }
+        .bike2-button:hover {
+            color: var(--roadBike-color);
+        }
+        .bike3-button {
+            left: 15px;
+            top: 80%;
+            border-radius: 0 10px 10px 0;
+        }
+        .bike3-button:hover {
+            color: var(--mountainBike-color);
+        }
+        .contact-button {
+            border-radius: 10px 0 0 10px;
+            top: 75%;
+            right: 0;
+        }
+        .contact-button:hover {
+            color: var(--contact-color);
+        }
+        /* contact form  */
+        .contact-form-desktop {
+            padding-left: 40px;
+            padding-right: 40px;
+            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+        }
+        .contact-form-map-container {
+            max-height: 450px;
+            display: block;
+            margin-top: 30px;
+            height: 56%;
+            border: 4px rgba(55, 55, 55, 0.8) solid;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .contact-form-map {
+            width: 100%;
+            height: 100%;
+            transition: all 500ms;
+            filter: grayscale(100%);
+            opacity: 0.6;
+        }
+        .contact-form-map:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1, 1.1);
+        }
+        .contact-form-icons {
+            display: none;
+        }
+        .contact-form-title {
+            font-size: 3rem;
+            text-shadow: black 5px 5px 5px;
+        }
+        .desktop-contact {
+            color: white;
+            text-shadow: black 5px 5px 5px;
+            display: grid;
+            margin-top: 15px;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-items: center;
+            align-items: center;
+        }
+        .desktop-contact h2 span {
+            font-size: 1.5rem;
+        }
+        .desktop-contact h2 .hoverText {
+            display: none;
+        }
+        .desktop-contact h2:hover .hoverText {
+            display: inline;
+            font-size: 1.0rem;
+        }
+        .desktop-contact h2:hover .orgText {
+            display: none;
+        }
+        .desktop-contact h2:hover .hoverText.social-icons {
+            display: flex;
+            justify-items: space-between;
+        }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+        }
+        .social-icons .youtube svg {
+            fill: var(--youtube-color);
+            height: 2rem;
+        }
+        .social-icons .instagram svg {
+            padding: 0 15px;
+            fill: rgb(205, 4, 205);
+            height: 1.5rem;
+        }
+        .social-icons .facebook svg {
+            fill: var(--facebook-color);
+            height: 1.7rem;
+        }
+        .navigation-container,
+        .gallery-info-wrapper {
+            display: none;
+        }
+        .emptyDiv {
+            position: absolute;
+        }
+        section .bike-image-container {
+            overflow: hidden;
+        }
+        section .bike-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: filter 500ms, transform 500ms;
+            transition-delay: 0ms;
+            filter: grayscale(100%);
+        }
+        section.active .bike-image {
+            filter: grayscale(100%);
+        }
+        section .bike-image:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+        section.active .bike-image:hover {
+            filter: grayscale(0%);
+        }
+        .image-container {
+            grid-column: span 2;
+        }
+        .image-wrapper {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr 30vh;
+            grid-template-columns: 1fr 1fr;
+        }
+        .desktop-image {
+            display: block;
+            height: 70vh;
+            width: 100%;
+            object-fit: cover;
+            transition: filter 500ms, transform 700ms;
+            transition-delay: 0ms;
+        }
+        #desktop-image-three:hover,
+        #desktop-image-two:hover,
+        #desktop-image-one:hover {
+            transform: scale(1.1);
+        }
+        .desktop-front-image {
+            display: block;
+            overflow: hidden;
+        }
+        .desktop-front-text {
+            color: var(--main-bg-color);
+            background-color: var(--foldingBike-color);
+            display: flex;
+            align-items: flex-start;
+            padding: 70px 20% 20% 20%;
+            line-height: 4vh;
+            max-height: 70vh;
+            overflow: hidden;
+        }
+        .desktop-front-text.one {
+            color: var(--main-bg-color);
+            background-color: var(--foldingBike-color);
+        }
+        .desktop-front-text.two {
+            color: var(--main-bg-color);
+            background-color: var(--roadBike-color);
+        }
+        .desktop-front-text.three {
+            color: var(--main-bg-color);
+            background-color: var(--mountainBike-color);
+        }
+        .desktop-front-text p {
+            transition: all 500ms;
+        }
+        .desktop-front-text:hover p {
+            transform: scale(1.05);
+            color: white;
+        }
+        .gallery-info-title {
+            left: 0;
+        }
+        #imageContainerOne {
+            left: 0 !important;
+        }
+    }
