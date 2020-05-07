@@ -3,12 +3,15 @@ School project - Indie projekt
 ---
 Website der viser forskellige typer elektriske cykler og hvor man rådgiver kunder til at lave det rette valg, 3 typer cykler med hver deres galleri og info. 
 
-Den er bygge op som en One page med scroll snap, som er en css property som gør at child elementer kan snappe til deres parents element kant.
-så man hele tiden får et full view af en sektion samt en navigations bar som følger med når men scroller ned.
-Den er er bygge op i flere sektioner, hver sektioner har et anker som man kan tilgå i navigationsbaren.
+Den er bygget op som en One page med scroll snap. Scroll snap er en css property der gør at child elementer kan snappe til deres parents elements kant, så man hele tiden får et full view af en sektion samt en navigations bar som følger med når men scroller ned.
+Den er bygget op i flere sektioner. Hver sektion har et anker som man kan tilgå i navigationsbaren.
 
-Hver sektion er bygge op af Grid og Flex til placering og sørge for siden at så responsive som muligt og der ved passer til mobile, tablet og desktop
- Java script der blandt andet er brugt.
+Hver sektion er bygget op af Grid og Flexbox. Grid og Flexbox bruges til placering af elementer og er med til at sørge for at siden er så responsiv som mulig og den passer til de fleste enheder som mobil, tablet og desktop.
+
+Der er brugt JavaScript til at gøre hjemmesiden mere levende og lækker. Som Kevin powell plejer at sige:
+> "Just remember to make your corner of the web just a little bit more awesome".
+
+Til at opnå det har jeg brugt følgende:
 
 * Intersection observer
 * EventListener
